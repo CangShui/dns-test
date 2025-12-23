@@ -275,11 +275,11 @@ def main():
     per_query_timeout_sec = timeout_ms / 1000
     
     # 6. 污染检查
-    print("\n6) 污染检查:")
-    print("1)开启 2)关闭")
-    pollute = input("选择(1/2): ").strip() or "2"
-    开启污染检查 = pollute == "1"
-    
+    #print("\n6) 污染检查:")
+    #print("1)开启 2)关闭")
+    #pollute = input("选择(1/2): ").strip() or "2"
+    #开启污染检查 = pollute == "1"
+    pollute = 1  # 默认开启污染检查
     
     # 7. 基准测试
     print("\n🔍 基准测试...")
@@ -288,7 +288,7 @@ def main():
     
     with ThreadPoolExecutor(max_workers=threads) as executor:
         futures = [executor.submit(测试单个dns, dns, test_domains, ip_mode,
-                                  per_query_timeout_sec, min_delay, 开启污染检查)
+                                  per_query_timeout_sec, min_delay, pollute)
                   for dns in dns_list]
         
         with tqdm(total=len(dns_list), desc="基准测试", unit="DNS") as pbar:
@@ -306,7 +306,8 @@ def main():
     if not 结果列表:
         sys.exit(1)
     
-    # 8. 终极污染检测
+    
+    # 8. 污染检测
     if 开启污染检查:
         candidates = [r for r in 结果列表 if r["dns污染"] == "待检测"]
         if candidates:
