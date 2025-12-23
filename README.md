@@ -1,3 +1,7 @@
+<img width="1390" height="1426" alt="image" src="https://github.com/user-attachments/assets/95e77b7f-29eb-4a53-bd92-e6187c1d17f9" />
+
+
+
 DNS 测试脚本介绍
 这个脚本是一个用于测试公共DNS服务器性能的专业工具。它从指定来源获取DNS服务器列表，对多个测试域名进行解析速度和准确性测试，并生成Excel报告。
 ​
