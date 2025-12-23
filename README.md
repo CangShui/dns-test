@@ -10,7 +10,7 @@ DNS 测试脚本介绍
 
 测试标准域名如google.com、facebook.com等
 
-使用GeoIP数据库（可选）过滤Google IP
+使用GeoIP数据库来判断DNS是否被中间人污染
 
 生成排序Excel报告，按性能指标排名
 
